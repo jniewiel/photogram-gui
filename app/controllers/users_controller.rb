@@ -14,10 +14,6 @@ class UsersController < ApplicationController
 
     @the_user = matching_username.at(0)
 
-    # if @the_user == nil
-    #   redirect_to("/404")
-    # else
     render({:template => "user_templates/show"})
-    # end
   end
 end
