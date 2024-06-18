@@ -79,10 +79,9 @@ class PhotosController < ApplicationController
     a_new_comment.body = input_comment
     a_new_comment.author_id = input_author_id
 
-    ??
+    a_new_comment.photo_id = the_photo.id
 
     a_new_comment.save
-    the_photo.save
 
     redirect_to("/photos/" + the_photo.id.to_s, { :notice => "Comment uploaded successfully." })
   end
