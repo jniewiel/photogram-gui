@@ -3,8 +3,23 @@
 <dl>
   <dt>ID</dt>
   <dd><%= @the_user.id %></dd>
+
   <dt>Edit user</dt>
-  <dd>form goes here</dd>
+  <dd>
+    <form action="/update_user/<%= @the_user.id %>" method="post">
+      <label for="browser_username">Username</label>
+      <input type="text" name="query_username" id="browser_username" placeholder="Enter a username for the user..." value="<%= @the_user.username %>">
+
+      <button>Update user</button>
+    </form>
+  </dd>
+
+  <dt>Delete user</dt>
+  <dd>
+    <a href="/delete_user/<%= @the_user.id %>">
+      Delete this user
+    </a>
+  </dd>
 </dl>
 
 <h2>Own photos (<%= @the_user.own_photos.size %>)</h2>
@@ -24,7 +39,7 @@
         <img src="<%= a_photo.image %>">
       </td>
       <td>
-      <%= a_photo.poster.username %>
+        <%= a_photo.poster.username %>
       </td>
       <td><%= a_photo.caption %></td>
       <td><%= a_photo.created_at %></td>
